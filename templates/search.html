@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>avodha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link href="static/item/layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+ <header id="header" class="hoc clear">
+      <div id="logo" class="fl_left">
+        <!-- ################################################################################################ -->
+        <h1><a href="/">AVODHA SHOP</a></h1>
+        <!-- ################################################################################################ -->
+      </div>
+      <nav id="mainav" class="fl_right">
+        <!-- ################################################################################################ -->
+
+
+
+        <ul class="clear">
+          <li class="active"><a href="/">Home</a></li>
+
+           <li><a class="drop" href="#">Dropdown</a>
+            <ul>
+              <li><a href="#">Level 2</a></li>
+              <li><a class="drop" href="#">Level 2 + Drop</a>
+                <ul>
+                  <li><a href="#">Level 3</a></li>
+                  <li><a href="#">Level 3</a></li>
+                  <li><a href="#">Level 3</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Level 2</a></li>
+            </ul>
+          </li>
+
+<!--&lt;!&ndash;          <li><a class="drop" href="#">Pages</a>&ndash;&gt;-->
+<!--&lt;!&ndash;            <ul>&ndash;&gt;-->
+<!--&lt;!&ndash;              <li><a href="static/item/pages/gallery.html">Gallery</a></li>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;          </li>&ndash;&gt;-->
+
+
+        </ul>
+<!--        &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+      </nav>
+    </header>
+ <section>
+     <div class="row">
+         <div class="col-md-12 bg-white">
+             <h1>helloo</h1>
+               {% for i in pr %}
+
+        <li class="one_third">
+          <figure><a class="imgover" href="{{i.get_url}}"><img src="{{i.img.url}}" alt="" style="width:300px;height:300px"></a>
+            <figcaption>
+              <h6 class="heading">{{i.name}}</h6>
+              <p>{{i.desc|truncatechars:12}}</p><br>
+              <p><b>Price : {{i.price}} Rs.</b></p><br>
+              <p>Stock Left : {{i.stock}} Nos.</p><br>
+
+            </figcaption>
+          </figure>
+        </li>
+
+{% endfor %}
+         </div>
+     </div>
+ </section>
+<script src="static/item/layout/scripts/jquery.min.js"></script>
+<script src="static/item/layout/scripts/jquery.backtotop.js"></script>
+<script src="static/item/layout/scripts/jquery.mobilemenu.js"></script>
+
+</body>
+</html>

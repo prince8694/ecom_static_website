@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+Template Name: Sislaf
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Copyright: OS-Templates.com
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+-->
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>f4g cart</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!-- CSS only -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link href="static/cart/new_cart.css" rel="stylesheet" type="text/css" media="all">
+<body>
+<section class="h-100 h-custom" style="background-color: #d2c9ff;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12">
+        <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+          <div class="card-body p-0">
+            <div class="row g-0">
+              <div class="col-lg-12">
+                <div class="p-5">
+                  <div class="d-flex justify-content-between align-items-center mb-5">
+                    <h1 class="fw-bold mb-0 text-black">F4G Cart</h1>
+                    <h6 class="mb-0 text-muted">cart items {{cn}}</h6>
+                  </div>
+                  <hr class="my-4">
+
+{% for i in ci %}
+
+                  <div class="row mb-4 d-flex justify-content-between align-items-center">
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                     <a href="{{i.prodt.get_url}}"> <img src="{{i.prodt.img.url}}" class="img-fluid rounded-3" alt="{{i.prodt.name}}" style="width:100px;height:100px;"></a>
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-xl-3">
+                      <h6 class="text-muted">{{i.categ.name}}</h6>
+                      <h6 class="text-black mb-0">{{i.prodt.name}}</h6>
+                    </div>
+                    <div class="col-md-4 col-lg-3 col-xl-2 d-flex">
+<!--                      <button class="btn btn-link px-2"-->
+<!--                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-->
+<!--                        <i class="fas fa-minus">-</i>-->
+<!--                      </button>-->
+                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                      <a href="{% url 'mincart' i.prodt.id %}" class="text-muted"><i class="fa fa-minus" style="font-size:12px;color:black"></i></a>
+                    </div>
+
+
+                      <input id="form1" min="0" name="quantity" value="{{i.qun}}" type="number"
+                        class="form-control form-control-sm" />
+
+                         <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                      <a href="{% url 'addcart' i.prodt.id %}" class="text-muted"><i class="fa fa-plus" style="font-size:12px;color:black"></i></a>
+                    </div>
+
+<!--                      <button class="btn btn-link px-2"-->
+<!--                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">-->
+<!--                        <i class="fas fa-plus">+</i>-->
+<!--                      </button>-->
+                    </div>
+                    <div class="col-md-1 col-lg-1 col-xl-1 offset-lg-1">
+                      <h6 class="mb-0">{{i.prodt.price}}</h6>
+                    </div>
+                    <div class="col-md-1 col-lg-1 col-xl-1 offset-lg-1">
+                      <h6 class="mb-0">{{i.total}}</h6>
+                    </div>
+
+                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                      <a href="{% url 'delcart' i.prodt.id %}" class="text-muted"><i class="fa fa-trash-o" style="font-size:24px;color:red"></i></a>
+                    </div>
+                  </div>
+                  <hr class="my-4">
+ {% endfor %}
+
+                  <div class="pt-5">
+                    <h6 class="mb-0"><a href="/" class="text-body"><i
+                          class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
+                  </div>
+                </div>
+              </div>
+<!--              summary-->
+              <div class="col-lg-12 bg-grey">
+                <div class="p-5">
+                  <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                  <hr class="my-4">
+
+                  <div class="d-flex justify-content-between mb-4">
+                    <h5 class="text-uppercase">items {{cn}}</h5>
+                    <h5>{{t}}</h5>
+                  </div>
+
+                  <div class="d-flex justify-content-between mb-4">
+
+                  <h5 class="text-uppercase mb-3">GST:- 18%</h5>
+                  <h5>{{sm}}</h5>
+                  </div>
+
+<!--                  <div class="mb-4 pb-2">-->
+<!--                    <select class="select">-->
+<!--                      <option value="1">Standard-Delivery- €5.00</option>-->
+<!--                      <option value="2">Two</option>-->
+<!--                      <option value="3">Three</option>-->
+<!--                      <option value="4">Four</option>-->
+<!--                    </select>-->
+<!--                  </div>-->
+
+
+                  <hr class="my-4">
+
+                  <div class="d-flex justify-content-between mb-5">
+                    <h5 class="text-uppercase">Total price</h5>
+                    <h5>{{g}}</h5>
+                  </div>
+
+                  <button type="button" class="btn btn-dark btn-block btn-lg"
+                    data-mdb-ripple-color="dark">Checkout</button>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="static/item/layout/scripts/jquery.min.js"></script>
+<script src="static/item/layout/scripts/jquery.backtotop.js"></script>
+<script src="static/item/layout/scripts/jquery.mobilemenu.js"></script>
+</body>
+</html>

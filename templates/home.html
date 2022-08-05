@@ -1,0 +1,245 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+Template Name: Sislaf
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Copyright: OS-Templates.com
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+-->
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>f4g shop</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link href="static/item/layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<style>
+  .dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  padding: 10px
+  margin-left: 10px
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- Top Background Image Wrapper -->
+<div class="bgded overlay" style="background-image:url('static/item/images/demo/backgrounds/bg.jpg');">
+  <!-- ################################################################################################ -->
+  <div class="wrapper row0">
+    <div id="topbar" class="hoc clear">
+      <div class="fl_left">
+        <!-- ################################################################################################ -->
+
+        <!-- ################################################################################################ -->
+      </div>
+      <div class="fl_right">
+<!--         ################################################################################################-->
+        <ul class="nospace">
+          <li><a href="#" title="Login"><i class="fas fa-sign-in-alt"></i></a></li>
+          <li><a href="#" title="Sign Up"><i class="fas fa-edit"></i></a></li>
+          <li id="searchform">
+            <div>
+              <form action="search" method="get">
+                <fieldset>
+                  <legend>Quick Search:</legend>
+                  <input type="text" placeholder="Enter search term" name="q">
+                  <button type="submit"><i class="fas fa-search"></i></button>
+                </fieldset>
+              </form>
+            </div>
+          </li>
+        </ul>
+<!--        &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+      </div>
+    </div>
+  </div>
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear">
+      <div id="logo" class="fl_left">
+        <!-- ################################################################################################ -->
+        <h1><a href="index.html">Food 4 Good SHOP</a></h1>
+        <!-- ################################################################################################ -->
+      </div>
+      <nav id="mainav" class="fl_right">
+        <!-- ################################################################################################ -->
+
+
+
+        <ul class="clear">
+          <li class="active"><a href="/">Home</a></li>
+          <li class="active"><a href="{% url 'cartdetails' %}">Cart</a></li>
+
+           <li><a class="drop" href="#">Dropdown</a>
+            <ul>
+              <li><a href="#">Level 2</a></li>
+              <li><a class="drop" href="#">Level 2 + Drop</a>
+                <ul>
+                  <li><a href="#">Level 3</a></li>
+                  <li><a href="#">Level 3</a></li>
+                  <li><a href="#">Level 3</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Level 2</a></li>
+            </ul>
+          </li>
+
+<!--&lt;!&ndash;          <li><a class="drop" href="#">Pages</a>&ndash;&gt;-->
+<!--&lt;!&ndash;            <ul>&ndash;&gt;-->
+<!--&lt;!&ndash;              <li><a href="static/item/pages/gallery.html">Gallery</a></li>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;          </li>&ndash;&gt;-->
+
+
+        </ul>
+<!--        &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+      </nav>
+    </header>
+       <!-- ##############dropdown############################## -->
+     <div class="dropdown">
+  <button class="dropbtn">Filter</button>
+  <div class="dropdown-content">
+  <a href="/">ALL</a>
+    {% for i in ct %}
+  <a href="{{i.get_url}}">{{i.name}}</a>
+    {% endfor %}
+  </div>
+     </div>
+  </div>
+
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <div id="pageintro" class="hoc clear">
+
+    <!-- ################################################################################################ -->
+    <article>
+      <h3 class="heading">QUALITY FOOD ITEMS</h3>
+      <p>Join us and have quality food item at your door step</p>
+    </article>
+
+
+</div>
+
+    <!-- ################################################################################################ -->
+  </div>
+<!--   ################################################################################################ -->
+
+
+
+<!--  <div class="category">-->
+<!--  {% for i in ct %}-->
+<!--  <b style="color:white">-->
+<!--    <a href="{{i.get_url}}">{{i.name}}</a><br>-->
+<!--  </b>-->
+<!--  {% endfor %}-->
+<!--</div>-->
+<!--</div>-->
+
+
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+
+    <section id="introblocks">
+      <ul class="nospace group btmspace-80">
+
+        {% for i in pg.object_list %}
+
+        <li class="one_third">
+          <figure><a class="imgover" href="{{i.get_url}}"><img src="{{i.img.url}}" alt="" style="width:300px;height:300px"></a>
+            <figcaption>
+              <h6 class="heading">{{i.name}}</h6>
+              <p>{{i.desc|truncatechars:12}}</p><br>
+              <p><b>Price : {{i.price}} Rs.</b></p><br>
+              <p>Stock Left : {{i.stock}} Nos.</p><br>
+
+            </figcaption>
+          </figure>
+        </li>
+
+{% endfor %}
+      </ul>
+    </section>
+    <!-- paginator -->
+<center>
+<!--  <button class="btn btn-primary">kjgkjdhdkh</button>-->
+ {% for p in pg.paginator.page_range %}
+  <a href="?page={{p}}" class="btn btn-primary" {% if pg.number == p %} active {% endif %}>{{p}}</a>
+  {% endfor %}
+
+<!--  {%if posts.has_other_pages%}-->
+<!--  <ul class="pagination">-->
+<!--    {%for i in posts.paginator.page_range%}-->
+<!--    {%if posts.number == i%}-->
+<!--    <li class="page-item"><a class="active page-link">{{i}}</a></li>-->
+<!--    {%else%}-->
+<!--    <li class="page-item"><a href="?page={{i}}" class="page-link">{{i}}</a></li>-->
+<!--    {%endif%}-->
+<!--    {%endfor%}-->
+<!--  </ul>-->
+<!--  {%endif%}-->
+</center>
+--------------------------------------------------------------------------------------
+    <hr class="btmspace-80">
+
+    <div class="clear"></div>
+  </main>
+</div>
+
+
+<div class="bgded overlay row4" style="background-image:url('images/demo/backgrounds/05.png');">
+
+</div>
+
+<script src="static/item/layout/scripts/jquery.min.js"></script>
+<script src="static/item/layout/scripts/jquery.backtotop.js"></script>
+<script src="static/item/layout/scripts/jquery.mobilemenu.js"></script>
+</body>
+</html>
